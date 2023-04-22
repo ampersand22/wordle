@@ -37,6 +37,8 @@ function App() {
     // })
   }, []);
 
+  console.log("test")
+
   const onEnter = () => {
     if (currAttempt.letter !== 5) return;
 
