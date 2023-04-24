@@ -5,7 +5,7 @@ import { boardDefault, generateWordSet, threeBoardDefault, fourBoardDefault, gen
 import { useState, createContext, useEffect } from "react";
 import GameOver from "./components/GameOver";
 // import ThreeBoard from "./components/ThreeBoard";
-import FourBoard from "./components/FourBoard";
+// import FourBoard from "./components/FourBoard";
 
 
 export const AppContext = createContext();
@@ -14,16 +14,19 @@ function App() {
   const [board, setBoard] = useState(boardDefault);
   const [threeBoard, setThreeBoard] = useState(threeBoardDefault)
   const [fourBoard, setFourBoard] = useState(fourBoardDefault)
-  const [active, setActive] = useState(boardDefault)
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letter: 0 });
   const [wordSet, setWordSet] = useState(new Set());
-  const [fourLetterSet, setFourLetterSet] = useState(new Set());
   const [correctWord, setCorrectWord] = useState("");
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
     guessedWord: false,
-  });
+  });  
+  
+  // save these for a four letter game in future
+  // const [active, setActive] = useState(boardDefault)
+  // const [fourLetterSet, setFourLetterSet] = useState(new Set());
+
 
   useEffect(() => {
     generateWordSet().then((words) => {
@@ -149,7 +152,7 @@ function App() {
           <Board /> : <FourBoard />
         } */}
         <Board />
-        {active }
+        
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContext.Provider>
