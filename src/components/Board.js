@@ -4,7 +4,7 @@ import Letter from "./Letter";
 
 function Board() {
   return (
-    <div className="board">
+    <div className="mx-auto justify-center flex flex-col w-80 h-80">
       {" "}
       <div className="row">
         <Letter letterPos={0} attemptVal={0} />

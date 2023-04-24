@@ -58,23 +58,26 @@ function Keyboard() {
   console.log(disabledLetters);
 
   return (
-    <div className='keyboard'>
-      <div className='line1'>{keys1.map((key) => {
+    <div className='keys flex flex-col items-center pb-5'>
+      <div className='line1 flex gap-1 my-0.5 w-fit'>{keys1.map((key) => {
         return <Key keyVal={key} threeKeyVal={key} fourKeyVal={key} />;
       })}</div>
-      <div className='line2'>
+      <div className='line2 flex gap-1 my-0.5 w-fit'>
         {keys2.map((key) => {
           return <Key keyVal={key} threeKeyVal={key} fourKeyVal={key} />;
         })}
       </div>
-      <div className='line3'>
-        <Key keyVal={"ENTER"} bigKey />
+      <div className='line3 flex gap-1 my-0.5 w-fit'>
+        {/* <Key keyVal={"ENTER"} bigKey /> */}
         {keys3.map((key) => {
           return <Key keyVal={key} threeKeyVal={key} fourKeyVal={key} />;
-        })}          
-        <Key keyVal={"DELETE"} bigKey />
-
+        })} 
+             
+        {/* <Key keyVal={"DELETE"} bigKey /> */}
+        
       </div>
+      <Key keyVal={"ENTER"} bigKey />
+      <Key keyVal={"DELETE"} bigKey />
 
     </div>
   )

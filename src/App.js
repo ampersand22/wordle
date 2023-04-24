@@ -116,8 +116,8 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="navBar">
-        <h1>Wordle Clone</h1>
+      <nav className="flex justify-center items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
+        <h1 className="font-bold text-5xl w-full">Wordle</h1>
       </nav>
       <AppContext.Provider
         value={{
@@ -138,8 +138,9 @@ function App() {
           disabledLetters,
           gameOver,
         }}
+        className='h-12 w-12 sm:w-14 sm:h-14 grid place-items-center p-0 m-0 font-bold text-2xl rounded-sm'
       >
-        <div className="game">
+        <div className="game max-w-[800px] mt-[-96px] w-full mx-auto text-center flex flex-col justify-center py-2 px-10">
         {/* {active ?
           <button className="buttonBox" onClick={activeHandler}> Click for 4 Letters</button> :
           <button className="buttonBox" onClick={activeHandler}> Click for 5 letters</button>
