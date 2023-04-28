@@ -27,6 +27,7 @@ function App() {
   // const [active, setActive] = useState(boardDefault)
   // const [fourLetterSet, setFourLetterSet] = useState(new Set());
 
+  console.log("is game over?", gameOver.gameOver);
 
   useEffect(() => {
     generateWordSet().then((words) => {
@@ -39,8 +40,6 @@ function App() {
     //   setCorrectWord(words.todaysWord);
     // })
   }, []);
-
-  console.log("test")
 
   const onEnter = () => {
     if (currAttempt.letter !== 5) return;
@@ -141,18 +140,10 @@ function App() {
           disabledLetters,
           gameOver,
         }}
-        className='h-12 w-12 sm:w-14 sm:h-14 grid place-items-center p-0 m-0 font-bold text-2xl rounded-sm'
+        className='h-16 w-16 grid place-items-center p-0 m-0 font-bold text-2xl rounded-sm'
       >
-        <div className="game max-w-[800px] mt-[-96px] w-full mx-auto text-center flex flex-col justify-center py-2 px-10">
-        {/* {active ?
-          <button className="buttonBox" onClick={activeHandler}> Click for 4 Letters</button> :
-          <button className="buttonBox" onClick={activeHandler}> Click for 5 letters</button>
-        } */}
-        {/* {active ? 
-          <Board /> : <FourBoard />
-        } */}
-        <Board />
-        
+        <div className="game max-w-[800px] max-h-[600px] mt-[-96px] w-full mx-auto text-center flex flex-col justify-center py-2 px-10">
+          <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContext.Provider>
